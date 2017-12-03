@@ -1,0 +1,15 @@
+	<br> <br><br>
+	<h3> Add New Category </h3>
+
+		<% if @category.errors.any? %>
+			<% @category.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %></div>
+			<% end %>
+		<% end %>
+
+	<%= form_for @category do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :name, class:'form-control' %>
+		<%= f.submit "Submit", class:'btn btn-primary' %>
+		<%= link_to "Cancel", class:'btn btn-default' %>
+	<% end %>

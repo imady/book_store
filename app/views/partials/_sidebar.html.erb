@@ -1,0 +1,12 @@
+        <% if params[:controller] == 'books' && params[:action] == 'index' || params[:action] == 'show' %>
+          <div class="well">
+            <h4>Categories</h4>
+            <div class="sidebar-module">
+              <ol class="list-unstyled">
+                <% @categories.each do |c| %>
+                <li class="list-group-item"><%= link_to c.name, category_path(c.id), class:'from-control' %></li>
+                <% end %>
+              </ol>
+            </div>
+          </div>
+        <% end %>

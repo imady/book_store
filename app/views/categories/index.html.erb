@@ -1,0 +1,14 @@
+<br> <br> <br> <br>
+	<h3> List of Categories </h3>
+	<%= flash[:notice] %>
+	<table class="table table-striped"> 
+		<th> Names </th> 
+		<th> Actions </th>
+		<% @categories.each do |c| %>
+			<tr> 
+				<td> <%= c.name %> </td>
+				<td> <%= link_to "Edit", edit_category_path(c), class:'btn btn-primary' %> </td>
+				<td> <%= link_to "Delete", category_path(c), method: :delete, data: {confirm: 'are you sure?'}, class:'btn btn-primary' %> </td> 
+			</tr>
+		<% end %>
+	</table>

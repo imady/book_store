@@ -1,0 +1,48 @@
+		<div id="books-show">
+
+			<h2> <%= @book.title %> </h2>
+
+			<div class="books-show-left">
+				<%= image_tag(@book.coverpath) %>
+			</div>
+
+			<div class="books-show-right">
+				<h3> Books Info </h3>
+				<ul>
+					<li> <strong> Year: </strong> <%= @book.year %> </li>
+					<li> <strong> Pages: </strong> <%= @book.pages %> </li>
+				
+					<li>
+					<stong> Category: </stong>
+						<% if @book.category.blank? %>
+						<%= 'None' %>
+						<% else %>
+						<%= @book.category.name %>
+						<% end %>
+					</li>
+
+					<li>
+					<strong> Author: </strong>
+						<% if @book.author.blank? %>
+						<%= 'None' %>
+						<% else %>
+						<%= @book.author.first_name %>
+						<% end %>
+					</li>
+				
+					<li>
+					<strong> Country: </strong>
+						<% if @book.country.blank? %>
+						<%= 'None' %>
+						<% else %>
+						<%= @book.country.name %>
+						<% end %>
+					</li>
+
+				</ul>
+				<%= link_to "Read More", 'http://www.google.com', class:'btn btn-success', target: '_blank' %>
+			</div>
+		</div>
+
+		<td> <%= link_to "Edit", edit_book_path(@book.id), class:'btn btn-primary' %> </td>
+			<td> <%= link_to "Delete", book_path(@book.id), method: :delete, data: {confirm: 'are you sure?'}, class:'btn btn-primary' %> </td>

@@ -1,0 +1,17 @@
+<br> <br><br>
+<h3> Add New Country </h3>
+
+		<% if @country.errors.any? %>
+			<% @country.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %> </div>
+			<% end %>
+		<% end %>
+
+		<%= flash[:notice] %>
+		
+		<%= form_for @country do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<%= f.submit "submit" %>
+		<%= link_to "cancel" %>
+		<% end %>

@@ -1,0 +1,17 @@
+<h1>Authors#index</h1>
+<p>Find me in app/views/authors/index.html.erb</p>
+<%= flash[:notice] %>
+<br>
+	<table class="table table-striped">
+		<th> First Name </th> 
+		<th> Second Name </th> 
+		<th> Actions </th>
+	<% @authors.each do |a| %>
+		<tr>
+			<td> <%= a.first_name %></td>
+			<td> <%= a.last_name %></td>
+			<td> <%= link_to "Edit", edit_author_path(a), class:'btn btn-primary' %> </td>
+			<td> <%= link_to "Delete", author_path(a), method: :delete, data: {confirm: 'are you sure?'}, class:'btn btn-primary' %> </td>
+		</tr>
+	<% end %>
+	</table>
